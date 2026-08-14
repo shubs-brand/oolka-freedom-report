@@ -360,8 +360,35 @@ main section.s-paper + section.s-paper > .w{
     transition:transform 1.8s cubic-bezier(.22,.61,.36,1) .15s}
   html.js .plate.kb.in img{transform:scale(1)}
 
-  /* the cover floats like the object it is, then settles like one too */
-  .hero-cover img{animation:floaty 7s ease-in-out 1.6s 3}
+  /* the cover floats like the object it is, then settles like one too.
+     The float lives on the FIGURE and the scroll-link on the IMG, because
+     a CSS animation and an inline scrub transform on the same element
+     fight, and the animation wins. */
+  .hero-cover{animation:floaty 7s ease-in-out 1.6s 3}
+
+  /* ---------- scroll-LINKED motion, added on the founder's note that the
+     page read as a PDF with entrance animation. Triggered motion happens
+     once; these respond to every frame of scroll. All of it is inline
+     transforms set by the rAF loop, transform-only, and none of it exists
+     without html.js, so reduced motion and no JS stay fully static. */
+  .plx{display:block;will-change:transform}
+  .hero-cover img{will-change:transform}
+  /* card 18 scrubbed: the line draws under the reader's thumb. The scrub
+     class replaces the one-shot draw; dots and labels light as the line
+     reaches them. Without JS the class never exists and the chart is whole. */
+  html.js .chart.scrub .gc-curve{stroke-dasharray:1;stroke-dashoffset:1;
+    animation:none!important}
+  html.js .chart.scrub .gc-area{opacity:0;transition:opacity .8s ease;
+    animation:none!important}
+  html.js .chart.scrub .gc-area.lit{opacity:1}
+  html.js .chart.scrub .gc-dot{opacity:0;transform:scale(.4);
+    transform-box:fill-box;transform-origin:center;
+    transition:opacity .25s ease,transform .3s cubic-bezier(.34,1.56,.64,1);
+    animation:none!important}
+  html.js .chart.scrub .gc-dot.lit{opacity:1;transform:scale(1)}
+  html.js .chart.scrub .gc-vl{opacity:0;transform:translateY(8px);
+    transition:opacity .35s ease,transform .35s ease;animation:none!important}
+  html.js .chart.scrub .gc-vl.lit{opacity:1;transform:none}
 
   /* the back-board heart is drawn by hand, so here the hand draws it */
   html.js .dedication .hrtp{stroke-dasharray:1;stroke-dashoffset:1}
@@ -410,7 +437,7 @@ main section.s-paper + section.s-paper > .w{
 <h2>A map with no borders on it.</h2>
 <p class="lede">One dot for every pincode where somebody uses Oolka. The country you are looking at is drawn entirely by the people inside it.</p>
 <figure class="plate plate-paper kb">
-  <img src="assets/map.png" width="1600" height="1832" alt="A map of India drawn only from dots, one for every pincode with Oolka users on it. No borders are drawn." loading="lazy">
+  <span class="plx"><img src="assets/map.png" width="1600" height="1832" alt="A map of India drawn only from dots, one for every pincode with Oolka users on it. No borders are drawn." loading="lazy"></span>
   <figcaption class="maplegend"><span class="leglab">ONE DOT = ONE PINCODE</span>
   <span class="legdots"><span class="mapdot" style="--d:7px"></span><i>100</i><span class="mapdot" style="--d:14px"></span><i>1,000</i><span class="mapdot" style="--d:22px"></span><i>10,000</i></span>
   <span class="leglab">USERS IN THAT PINCODE</span></figcaption>
@@ -421,7 +448,7 @@ main section.s-paper + section.s-paper > .w{
 <p class="kicker">HOW MUCH GETS SAID</p>
 <ul class="bubbles"><li class="bubble" lang="en">Why are my KCC limits missing?</li><li class="bubble" lang="hi-Latn">Main abhi gaon mein Hun to mujhe card yahin per mil jaega</li><li class="bubble" lang="pa">ਸਰ ਮੇਰੇ ਟੋਟਲ ਕਿਤਨੇ ਲੋਨ ਚੱਲ ਰਹੇ</li><li class="bubble" lang="en">Consider it has closed as im unemployed</li><li class="bubble" lang="or">ଫେକ୍ ଲୋନ୍ କିପରି ହଟାଇବି?</li></ul>
 <figure class="plate plate-paper field">
-  <img src="assets/field.jpg" width="1600" height="422" alt="" loading="lazy">
+  <span class="plx"><img src="assets/field.jpg" width="1600" height="422" alt="" loading="lazy"></span>
 </figure>
 <div class="heroline"><span class="heronum">11.6</span>
 <span class="heroword">Crore messages exchanged</span></div>
@@ -556,9 +583,9 @@ main section.s-paper + section.s-paper > .w{
 <blockquote class="verdict">“Better than relatives and friends. You support without any self-interest.”</blockquote>
 <p class="who">ONE USER</p></div></section><section class="s s-green" id="live" aria-label="The report ends. The work doesn&rsquo;t."><div class="w"><p class="kicker">WHAT A WEEK LOOKS LIKE NOW</p><h2>The report ends. The work doesn&rsquo;t.</h2><p class="lede">Everything above is the story so far. These numbers move every week.</p><div class="stats"><div class="stat"><span class="n">1 in 6</span><span class="l">score refreshes end with the score going up</span></div><div class="stat"><span class="n">14,000+</span><span class="l">people see their credit score rise in a typical week</span></div><div class="stat"><span class="n">3x</span><span class="l">more weekly score rises than in June</span></div></div><p class="livestamp">JUN TO AUG 2026</p></div></section><section class="s s-night" id="card-17" aria-label="The close"><div class="w">
 <figure class="backboard">
-  <img src="assets/backboard.jpg" srcset="assets/backboard.jpg 1200w, assets/backboard-s.jpg 640w"
+  <span class="plx"><img src="assets/backboard.jpg" srcset="assets/backboard.jpg 1200w, assets/backboard-s.jpg 640w"
        sizes="(min-width: 900px) 420px, 80vw" width="1200" height="1500"
-       alt="Back cover: red cloth, the Oolka mark, and a hand-drawn white heart beside the dedication." loading="lazy">
+       alt="Back cover: red cloth, the Oolka mark, and a hand-drawn white heart beside the dedication." loading="lazy"></span>
 </figure>
 <p class="dedication">Made for Bharat, with <svg class="heart" viewBox="0 0 24 22" aria-hidden="true"><path class="hrtp" pathLength="1" d="M12 20.3C5.4 15.5 1.6 11.6 1.6 7.4 1.6 4.2 4 2 6.9 2c1.9 0 3.7 1 4.6 2.6h1C13.4 3 15.2 2 17.1 2 20 2 22.4 4.2 22.4 7.4c0 4.2-3.8 8.1-10.4 12.9Z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></p>
 <p class="hero-cta"><a class="btn" href="FreedomReport.pdf" download>Download the report</a></p></div></section></main><footer class="s s-night">
@@ -570,33 +597,78 @@ main section.s-paper + section.s-paper > .w{
 <script>
 (function(){
   var d=document.documentElement;
-  if(!d.classList.contains('js')){railOnly();return}
-  try{
-    var io=new IntersectionObserver(function(es){
-      es.forEach(function(en){
-        if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}
-      })
-    },{rootMargin:'0px 0px -8% 0px',threshold:0.12});
-    document.querySelectorAll('.kicker,h2,.lede,.stat,.heroline,.plate,.chart,.fx,.rec-hero,.rec-story,.verdict,.who,.backboard,.dedication,.hero-text,.hero-cover,.maplegend,.dlab,.dial,.hero-cta,.ask-list li,.bubbles li,.tiles li,.calls li,.langgrid li,.typed li,.tree .lvl').forEach(function(el){io.observe(el)});
-  }catch(err){d.classList.remove('js')}
-  railOnly();
-  function railOnly(){
-    var segs=document.querySelectorAll('.prail i');
-    var secs=Array.prototype.slice.call(
-      document.querySelectorAll('header[id],section[id]'));
-    var tick=false;
-    function rail(){
-      tick=false;
-      var y=window.scrollY+window.innerHeight*0.6;
-      secs.forEach(function(s,i){
-        if(segs[i]){segs[i].classList.toggle('on',s.offsetTop<=y)}
+  var fx=[];
+  if(d.classList.contains('js')){
+    try{
+      var io=new IntersectionObserver(function(es){
+        es.forEach(function(en){
+          if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}
+        })
+      },{rootMargin:'0px 0px -8% 0px',threshold:0.12});
+      document.querySelectorAll('.kicker,h2,.lede,.stat,.heroline,.plate,.chart,.fx,.rec-hero,.rec-story,.verdict,.who,.backboard,.dedication,.hero-text,.hero-cover,.maplegend,.dlab,.dial,.hero-cta,.ask-list li,.bubbles li,.tiles li,.calls li,.langgrid li,.typed li,.tree .lvl').forEach(function(el){io.observe(el)});
+
+      /* scroll-linked motion. Each entry is one element and one function of
+         scroll state; everything runs in the single rAF pass below. */
+      var vh=function(){return window.innerHeight};
+      var book=document.querySelector('.hero-cover img');
+      if(book){fx.push(function(){
+        var p=Math.min(1,Math.max(0,window.scrollY/(vh()*0.9)));
+        book.style.transform='translateY('+(p*72).toFixed(1)+'px) '+
+          'rotate('+(p*3.2).toFixed(2)+'deg) scale('+(1-p*0.055).toFixed(3)+')';
+      })}
+      document.querySelectorAll('.plx').forEach(function(el){
+        fx.push(function(){
+          var r=el.getBoundingClientRect();
+          if(r.bottom<0||r.top>vh()){return}
+          var p=(r.top+r.height/2-vh()/2)/vh();
+          el.style.transform='translateY('+(p*-26).toFixed(1)+'px)';
+        });
       });
-    }
-    window.addEventListener('scroll',function(){
-      if(!tick){tick=true;requestAnimationFrame(rail)}
-    },{passive:true});
-    rail();
+      document.querySelectorAll('.heroline .heronum').forEach(function(el){
+        fx.push(function(){
+          var r=el.getBoundingClientRect();
+          if(r.bottom<0||r.top>vh()){return}
+          var p=(r.top+r.height/2-vh()/2)/vh();
+          el.style.transform='translateY('+(p*-14).toFixed(1)+'px)';
+          el.style.display='inline-block';
+        });
+      });
+      var gfig=document.querySelector('#card-18 .chart');
+      if(gfig){
+        gfig.classList.add('scrub');
+        var curve=gfig.querySelector('.gc-curve');
+        var area=gfig.querySelector('.gc-area');
+        var dots=Array.prototype.slice.call(gfig.querySelectorAll('.gc-dot'));
+        var vls=Array.prototype.slice.call(gfig.querySelectorAll('.gc-vl'));
+        fx.push(function(){
+          var r=gfig.getBoundingClientRect();
+          var p=Math.min(1,Math.max(0,(vh()*0.88-r.top)/(vh()*0.62)));
+          if(curve){curve.style.strokeDashoffset=(1-p).toFixed(4)}
+          dots.forEach(function(dot,i){
+            dot.classList.toggle('lit',p>=(i+0.6)/6)});
+          vls.forEach(function(v,i){
+            v.classList.toggle('lit',p>=(i+0.6)/6)});
+          if(area){area.classList.toggle('lit',p>=0.98)}
+        });
+      }
+    }catch(err){d.classList.remove('js');fx=[]}
   }
+  var segs=document.querySelectorAll('.prail i');
+  var secs=Array.prototype.slice.call(
+    document.querySelectorAll('header[id],section[id]'));
+  var tick=false;
+  function frame(){
+    tick=false;
+    var y=window.scrollY+window.innerHeight*0.6;
+    secs.forEach(function(s,i){
+      if(segs[i]){segs[i].classList.toggle('on',s.offsetTop<=y)}
+    });
+    for(var i=0;i<fx.length;i++){fx[i]()}
+  }
+  function queue(){if(!tick){tick=true;requestAnimationFrame(frame)}}
+  window.addEventListener('scroll',queue,{passive:true});
+  window.addEventListener('resize',queue,{passive:true});
+  frame();
 })();
 </script>
 </body>
