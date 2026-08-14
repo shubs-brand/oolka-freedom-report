@@ -40,12 +40,17 @@ reverted:
 
 ## The PDF
 
-The 10 MB PDF is not committed to oolka-web. It is served from the CloudFront
-distribution that already fronts Oolka's static assets, at
-`production/reports/FreedomReport.pdf`, and should carry
-`Content-Disposition: attachment` so the "Download the report" CTAs actually
-download rather than opening a tab. The copy in this repo is the source file
-for that upload.
+The copy in this repo is the 10.5 MB **master**. What ships in oolka-web is a
+2.7 MB compressed derivative, 200 to 150 dpi, generated outside this pipeline.
+13 of its 15 pages are perceptually identical to the master; the cover and back
+cover soften slightly in their photographic texture, while every partner logo
+stays legible.
+
+It is served same-origin, from `/freedom-report/FreedomReport.pdf`, not from a
+CDN. That is deliberate: the three "Download the report" CTAs carry a
+`download` attribute, and browsers honour it same-origin only. Served
+cross-origin it is silently ignored and the PDF opens in a tab instead, unless
+the object carries a `Content-Disposition: attachment` header.
 
 ## Still owed
 
