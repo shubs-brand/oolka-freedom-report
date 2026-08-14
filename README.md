@@ -1,47 +1,53 @@
 # India's Financial Freedom Report — oolka.in page
 
 The web edition of India's Financial Freedom Report, from Oolka. Lives at
-**https://oolka.in/freedom-report/**.
+**https://oolka.in/freedom-report**.
 
-`index.html` + `assets/` + `FreedomReport.pdf`. Everything is relative paths;
-the page renders complete with no JavaScript, and every motion and interaction
-sits behind an `html.js` gate inside a reduced-motion guard.
+`index.html` + `assets/` + `FreedomReport.pdf`. The page renders complete with
+no JavaScript; all motion and interaction sits behind an `html.js` gate inside
+a reduced-motion guard.
 
 ## Build
 
-This folder is BUILT, never hand-edited. The source of truth is the card deck:
-`python3 build_deck.py && python3 build_web.py` regenerates everything here.
-Every line of copy is extracted from the deck cards and asserted back against
-them at build time, so edit the card builders, not this HTML.
+This folder is BUILD OUTPUT, never hand-edited. The source of truth is the card
+deck: `python3 build_deck.py && python3 build_web.py` regenerates everything
+here. Every line of copy is extracted from the deck cards and asserted back
+against them at build time, so edit the card builders, not this HTML.
 
-## Deploy
+## Where it actually deploys from
 
-oolka.in is self-hosted Next.js behind nginx. Clone this repo on that box and
-alias the path to it:
+**This repo is not the deploy source.** The page ships inside the main website
+repo, `Sixdis-Oolka/oolka-web`, as a static folder at `public/freedom-report/`,
+so it goes out through the normal review and deploy pipeline. See
+[oolka-web#201](https://github.com/Sixdis-Oolka/oolka-web/pull/201).
 
-```
-sudo git clone https://github.com/shubs-brand/oolka-freedom-report.git /var/www/oolka-freedom-report
-```
+An earlier plan cloned this repo onto the server and pointed an nginx `alias`
+at it. That was dropped: it put the page outside code review and left two
+copies to keep in sync.
 
-Then inside the oolka.in `server` block:
+To publish a change: rebuild here, then copy `index.html` and `assets/` into
+`public/freedom-report/` in oolka-web and raise a PR.
 
-```
-location = /freedom-report { return 301 /freedom-report/; }
-location /freedom-report/ {
-    alias /var/www/oolka-freedom-report/;
-    index index.html;
-}
-```
+Two things follow from Next.js serving the page, and both will break if
+reverted:
 
-`sudo nginx -t && sudo systemctl reload nginx`. Updates are `git pull` in that
-directory.
+- **Asset paths are root-absolute** (`/freedom-report/assets/...`). Relative
+  paths only resolve under a trailing slash, and oolka-web runs
+  `trailingSlash:false`, so `/freedom-report/` 308s to `/freedom-report` where
+  a relative `assets/map.png` resolves against `/` and 404s.
+- **Canonical, `og:url` and the JSON-LD `url` carry no trailing slash**, so they
+  point at a 200 rather than a 308.
 
-Canonical, `og:url` and `og:image` are already absolute and point at
-https://oolka.in/freedom-report/ — nothing needs editing at deploy time.
+## The PDF
+
+The 10 MB PDF is not committed to oolka-web. It is served from the CloudFront
+distribution that already fronts Oolka's static assets, at
+`production/reports/FreedomReport.pdf`, and should carry
+`Content-Disposition: attachment` so the "Download the report" CTAs actually
+download rather than opening a tab. The copy in this repo is the source file
+for that upload.
 
 ## Still owed
 
 - Spot-check Indic text on Windows (Nirmala UI), especially Ol Chiki and
-  Meetei Mayek. macOS and Android are verified.
-- Add `/freedom-report/` to the oolka.in sitemap by hand — the nginx alias
-  makes it invisible to Next's route-generated sitemap.
+  Meetei Mayek. macOS is verified live, Android by forcing the Noto stack.
