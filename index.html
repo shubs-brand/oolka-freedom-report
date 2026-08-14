@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>India’s Financial Freedom Report</title>
+<meta name="description" content="What millions of Indians actually asked Dhruva, Oolka’s AI, about money: 11.6 crore messages, 22 scheduled languages, nearly every pincode. Read the report and download the PDF.">
+<meta property="og:title" content="India’s Financial Freedom Report">
+<meta property="og:description" content="What millions of Indians actually asked Dhruva, Oolka’s AI, about money: 11.6 crore messages, 22 scheduled languages, nearly every pincode. Read the report and download the PDF.">
+<meta property="og:type" content="article">
+<!-- web team: set og:image and og:url to the absolute URLs when the path is
+     final. assets/cover.jpg is the intended og:image. -->
+<script type="application/ld+json">{"@context":"https://schema.org",
+"@type":"Report","headline":"India’s Financial Freedom Report","datePublished":"2026-08-15",
+"publisher":{"@type":"Organization","name":"Oolka"},
+"description":"What millions of Indians actually asked Dhruva, Oolka’s AI, about money: 11.6 crore messages, 22 scheduled languages, nearly every pincode. Read the report and download the PDF.","inLanguage":"en"}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --paper:#F5EFE3; --night:#0F2994;
+  --ink:#2B2B2B; --ink-2:#6E6A60;
+  --on-night:#F5EFE3; --on-night-2:#A9B6EC;
+  --saffron:#D9531A; --marigold:#F79B3D;
+  --green:#0B6B45; --green-light:#4FAE84; --peri:#5B79E3;
+}
+@font-face{font-family:'Poppins';src:url('assets/fonts/poppins-400.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Poppins';src:url('assets/fonts/poppins-500.woff2') format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Poppins';src:url('assets/fonts/poppins-600.woff2') format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'Poppins';src:url('assets/fonts/poppins-700.woff2') format('woff2');font-weight:700;font-display:swap}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
+  -webkit-font-smoothing:antialiased;background:var(--paper);color:var(--ink);
+  overflow-x:hidden}
+/* two grounds, two inks, per section, exactly the deck's tokens. In dark mode
+   paper sections take the night side of the same token system; nothing new. */
+.s-paper{--g:var(--paper);--t1:var(--ink);--t2:var(--ink-2);
+  --head:var(--night);--acc:var(--saffron);--hero:var(--night);
+  --rule:rgba(43,43,43,.16);--wave:#0F2994;
+  --bub-bg:#FFFFFF;--bub-fg:var(--night);--bub-line:rgba(15,41,148,.18)}
+.s-night{--g:var(--night);--t1:var(--on-night);--t2:var(--on-night-2);
+  --head:var(--on-night);--acc:var(--marigold);--hero:var(--on-night);
+  --rule:rgba(245,239,227,.22);--wave:#F5EFE3;
+  --bub-bg:var(--on-night);--bub-fg:var(--night);--bub-line:transparent}
+@media (prefers-color-scheme: dark){
+  body{background:var(--night);color:var(--on-night)}
+  .s-paper{--g:var(--night);--t1:var(--on-night);--t2:var(--on-night-2);
+    --head:var(--on-night);--acc:var(--marigold);--hero:var(--on-night);
+    --rule:rgba(245,239,227,.22);--wave:#F5EFE3;
+    --bub-bg:var(--on-night);--bub-fg:var(--night);--bub-line:transparent}
+}
+.s{background:var(--g);color:var(--t1);padding:clamp(56px,9vw,110px) 24px}
+.w{max-width:1000px;margin:0 auto}
+.kicker{font-size:13px;font-weight:600;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--t2);margin-bottom:22px}
+h1{font-size:clamp(38px,7vw,72px);font-weight:700;line-height:1.04;
+  letter-spacing:-.02em;color:var(--head)}
+h2{font-size:clamp(30px,5vw,54px);font-weight:700;line-height:1.06;
+  letter-spacing:-.02em;color:var(--head);max-width:18em;text-wrap:balance}
+h1{text-wrap:balance}
+.lede{font-size:clamp(17px,2vw,20px);line-height:1.55;color:var(--t2);
+  max-width:38em;margin-top:18px}
+hr{border:0;height:1px;background:var(--rule);margin:clamp(32px,5vw,52px) 0}
+.btn{display:inline-block;background:var(--acc);color:var(--g);
+  font-weight:600;font-size:16px;text-decoration:none;
+  padding:14px 26px;border-radius:10px}
+.btn:hover{filter:brightness(1.06)}
+
+/* hero */
+.hero{padding-top:clamp(48px,7vw,90px)}
+.hero-grid{display:grid;gap:clamp(28px,5vw,64px);align-items:center;
+  grid-template-columns:1fr}
+@media (min-width:900px){.hero-grid{grid-template-columns:1.2fr 1fr}}
+.hero-by{font-size:19px;color:var(--t2);margin-top:14px}
+.hero-cta{margin-top:30px}
+.hero-cover img{width:min(400px,72vw);height:auto;border-radius:6px;
+  box-shadow:0 24px 60px rgba(0,0,0,.35);display:block;margin:0 auto}
+
+/* lists and stats */
+.ask-list{list-style:none;margin-top:clamp(28px,4vw,44px);display:flex;
+  flex-direction:column;gap:clamp(16px,2.5vw,26px)}
+.ask-list li{font-size:clamp(20px,3vw,30px);font-weight:500;line-height:1.3;
+  letter-spacing:-.01em}
+.ask-list b{color:var(--acc);font-weight:700}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:clamp(24px,4vw,44px);margin-top:clamp(28px,5vw,48px)}
+.stats-2{grid-template-columns:repeat(auto-fit,minmax(160px,max-content));
+  column-gap:clamp(40px,8vw,90px)}
+.stat .n{display:block;font-size:clamp(36px,4.2vw,58px);font-weight:700;
+  letter-spacing:-.03em;line-height:1;color:var(--acc);white-space:nowrap}
+.stats-2 .stat .n{font-size:clamp(44px,6.5vw,84px)}
+.s-paper .stat .n{color:var(--head)}
+.stat .l{display:block;font-size:16px;color:var(--t2);margin-top:8px;
+  max-width:22em;line-height:1.4}
+.heroline{margin-top:clamp(28px,5vw,48px)}
+.heroline .heronum{font-size:clamp(64px,11vw,124px);font-weight:700;
+  letter-spacing:-.04em;line-height:.95;color:var(--hero)}
+.heroline .heroword{display:block;font-size:clamp(19px,2.6vw,26px);
+  font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--acc);margin-top:10px;max-width:24em}
+.heroline .heroword.caps{letter-spacing:.1em;font-size:clamp(16px,2vw,21px)}
+.heroline.stack{margin-top:clamp(22px,4vw,36px)}
+
+/* chat bubbles */
+.bubbles{list-style:none;display:flex;flex-wrap:wrap;gap:14px;
+  margin-top:clamp(20px,3vw,32px)}
+.bubble{background:var(--bub-bg);color:var(--bub-fg);
+  border:1.5px solid var(--bub-line);border-radius:22px;
+  padding:12px 20px;font-size:clamp(16px,2vw,20px);font-weight:500;
+  line-height:1.4;width:fit-content;max-width:100%}
+blockquote.bubble{border-bottom-left-radius:6px;font-weight:600}
+.gloss{font-size:15px;line-height:1.45;color:var(--t2);margin:10px 4px 0}
+.about{font-size:15px;font-weight:500;line-height:1.45;color:var(--acc);
+  margin:10px 4px 0}
+
+/* plates: figures that keep their own ground in both themes, because the
+   art inside them was drawn for that ground */
+.plate{margin-top:clamp(28px,5vw,48px);border-radius:14px;overflow:hidden}
+.plate img,.plate svg{display:block;width:100%;height:auto}
+.plate-paper{background:var(--paper);padding:clamp(16px,3vw,32px)}
+.plate-night{background:var(--night);padding:clamp(16px,3vw,32px)}
+.maplegend{display:flex;flex-wrap:wrap;align-items:center;gap:14px;
+  padding-top:18px;color:var(--ink-2)}
+.leglab{font-size:12px;font-weight:700;letter-spacing:.2em}
+.legdots{display:flex;align-items:center;gap:10px}
+.mapdot{width:var(--d);height:var(--d);border-radius:50%;
+  background:var(--night);display:inline-block}
+.legdots i{font-style:normal;font-size:13px;margin-right:8px}
+.field{padding:0}
+.chart{margin-top:clamp(28px,5vw,48px)}
+.chart svg{display:block;width:100%;height:auto}
+.chart figcaption{font-size:14px;color:var(--t2);margin-top:10px}
+.wave{margin-top:clamp(20px,4vw,40px)}
+
+/* language grid */
+.langgrid{list-style:none;display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+  gap:clamp(18px,3vw,34px);margin-top:clamp(24px,4vw,40px);
+  font-size:clamp(24px,3vw,34px);font-weight:600;line-height:1.2}
+.dlab{font-size:13px;font-weight:700;letter-spacing:.2em;color:var(--t2);
+  margin-top:clamp(32px,5vw,52px)}
+.dial{font-size:clamp(17px,2.2vw,22px);color:var(--t2);margin-top:12px;
+  line-height:1.6}
+
+/* two-column card 15 */
+.cols{display:grid;gap:clamp(28px,5vw,64px);align-items:start;
+  grid-template-columns:1fr}
+@media (min-width:860px){.cols{grid-template-columns:1.1fr 1fr}}
+.drawing{max-width:520px}
+.drawing svg{max-height:72vh}
+
+/* card 08 night-owl panel */
+.fx{margin-top:clamp(28px,5vw,48px);background:rgba(245,239,227,.055);
+  border:1px solid rgba(245,239,227,.14);border-radius:20px;
+  padding:clamp(18px,3vw,28px)}
+.fx-head{display:flex;align-items:baseline;justify-content:space-between;
+  gap:12px;margin-bottom:16px}
+.fx-lab{font-size:13px;font-weight:700;letter-spacing:.2em;
+  color:var(--marigold)}
+.fx-time{font-size:14px;font-weight:600;letter-spacing:.08em;
+  color:var(--on-night-2);font-variant-numeric:tabular-nums}
+.fx-bub{max-width:26em}
+
+/* card 10 tree */
+.tree{margin-top:clamp(28px,4vw,44px);border-left:2px solid var(--rule);
+  padding-left:clamp(18px,3.5vw,36px);display:flex;flex-direction:column;
+  gap:clamp(28px,4vw,44px)}
+.trlvl{font-size:13px;font-weight:700;letter-spacing:.2em;color:var(--t2);
+  margin-bottom:14px}
+.l1{background:var(--head);color:var(--g);border-radius:30px;
+  border-bottom-left-radius:30px;font-size:clamp(18px,2.6vw,25px);
+  font-weight:700;border:0}
+.l2{font-size:clamp(19px,2.8vw,25px);font-weight:600;line-height:1.4;
+  color:var(--head);max-width:30em}
+.typed{list-style:none;display:flex;flex-direction:column;
+  gap:clamp(22px,3.5vw,34px)}
+.trlang{display:block;font-size:12px;font-weight:700;letter-spacing:.2em;
+  color:var(--t2);margin-bottom:10px}
+
+/* card 13 records */
+.rec-hero{display:grid;gap:20px;margin-top:clamp(28px,5vw,48px);
+  grid-template-columns:1fr;align-items:center}
+@media (min-width:760px){.rec-hero{grid-template-columns:180px 1fr;
+  column-gap:36px}.rec-story{grid-column:1/-1}}
+.photo{width:150px;height:150px;border-radius:50%;object-fit:cover;
+  border:2px solid var(--rule)}
+.tn{display:block;font-size:15px;font-weight:700;letter-spacing:.14em;
+  color:var(--t1)}
+.rec-head .heronum{font-size:clamp(56px,9vw,100px);font-weight:700;
+  letter-spacing:-.03em;line-height:1;color:var(--hero);display:block;
+  margin:8px 0}
+.hu{display:block;font-size:15px;font-weight:600;letter-spacing:.14em;
+  color:var(--acc)}
+.hq{font-size:clamp(20px,3vw,27px);font-weight:600;line-height:1.4;
+  color:var(--head);margin-top:14px}
+.story{font-size:clamp(16px,2vw,20px);line-height:1.55;color:var(--t2);
+  margin-top:16px;max-width:44em}
+.tiles{list-style:none;display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:clamp(24px,4vw,40px)}
+.avatar{width:56px;height:56px;border-radius:50%;display:flex;
+  align-items:center;justify-content:center;font-size:17px;font-weight:700;
+  letter-spacing:.08em;color:var(--head);background:rgba(15,41,148,.07);
+  border:1.6px solid var(--rule);margin-bottom:14px}
+.s-night .avatar,.dark .avatar{background:rgba(245,239,227,.08)}
+@media (prefers-color-scheme: dark){
+  .s-paper .avatar{background:rgba(245,239,227,.08)}}
+.tiles .tf{display:block;font-size:clamp(28px,4vw,38px);font-weight:700;
+  letter-spacing:-.02em;color:var(--hero);margin:6px 0 8px}
+.tiles .ts{font-size:15px;line-height:1.5;color:var(--t2)}
+
+/* card 16 */
+.calls{list-style:none;display:flex;flex-direction:column;
+  gap:clamp(24px,4vw,38px);margin-top:clamp(28px,4vw,44px)}
+.qf-row{display:grid;gap:10px;grid-template-columns:1fr}
+@media (min-width:760px){.qf-row{grid-template-columns:220px 1fr;
+  column-gap:30px}}
+.qfname{font-size:clamp(26px,4vw,38px);font-weight:700;
+  letter-spacing:-.02em;color:var(--acc);line-height:1.05}
+.qforig{display:block;font-size:12px;font-weight:600;letter-spacing:.24em;
+  color:var(--t2);margin-top:8px}
+.verdict{font-size:clamp(24px,3.6vw,36px);font-weight:700;line-height:1.25;
+  letter-spacing:-.02em;color:var(--head);text-align:center;max-width:24em;
+  margin:0 auto}
+.who{text-align:center;font-size:13px;font-weight:600;letter-spacing:.24em;
+  color:var(--t2);margin-top:18px}
+
+/* card 11 */
+.commstats{display:grid;gap:clamp(24px,5vw,60px);align-items:end;
+  grid-template-columns:1fr;margin-bottom:8px}
+@media (min-width:760px){.commstats{grid-template-columns:auto auto;
+  justify-content:start}}
+
+/* close */
+#card-17{text-align:center}
+.backboard img{width:min(420px,80vw);height:auto;border-radius:6px;
+  box-shadow:0 24px 60px rgba(0,0,0,.35);display:block;margin:0 auto}
+.dedication{margin-top:28px;font-size:17px;color:var(--t2)}
+.heart{width:20px;height:18px;vertical-align:-3px;color:var(--on-night)}
+#card-17 .hero-cta{margin-top:26px}
+
+/* header bar + footer */
+.bar{position:sticky;top:0;z-index:10;background:var(--night);
+  color:var(--on-night);display:flex;align-items:center;gap:18px;
+  justify-content:space-between;padding:12px 24px;
+  border-bottom:1px solid rgba(245,239,227,.14)}
+.bar img{height:26px;display:block}
+.bar a.dl{color:var(--marigold);font-size:14px;font-weight:600;
+  text-decoration:none;letter-spacing:.04em}
+.bar .date{font-size:12px;font-weight:600;letter-spacing:.18em;
+  color:var(--on-night-2)}
+@media (max-width:560px){.bar .date{display:none}}
+footer.s{padding-top:36px;padding-bottom:36px}
+footer .w{display:flex;flex-wrap:wrap;gap:18px;align-items:center;
+  justify-content:space-between}
+footer img{height:30px}
+footer .date{font-size:12px;font-weight:600;letter-spacing:.18em;
+  color:var(--on-night-2)}
+</style>
+</head>
+<body>
+<nav class="bar" aria-label="Report header">
+  <img src="assets/oolka_horiz_white.svg" alt="Oolka">
+  <span class="date">15 AUGUST 2026</span>
+  <a class="dl" href="FreedomReport.pdf" download>Download PDF</a>
+</nav>
+<header class="s s-night hero" id="card-01">
+  <div class="w hero-grid">
+    <div class="hero-text">
+      <p class="kicker">15 AUGUST 2026</p>
+      <h1>India&rsquo;s Financial Freedom Report</h1>
+      <p class="hero-by">by Oolka</p>
+      <p class="hero-cta"><a class="btn" href="FreedomReport.pdf" download>Download the report (PDF, 10 MB)</a></p>
+    </div>
+    <figure class="hero-cover">
+      <img src="assets/cover.jpg" srcset="assets/cover.jpg 1200w, assets/cover-s.jpg 640w"
+           sizes="(min-width: 900px) 400px, 70vw" width="1200" height="1500"
+           alt="Cloth-bound cover of the report, tied with string, the title debossed into red fabric." fetchpriority="high">
+    </figure>
+  </div>
+</header><main><section class="s s-night" id="card-19" aria-label="Financial freedom starts with the freedom to ask."><div class="w">
+<p class="kicker">WHAT FREEDOM MEANS</p>
+<h2>Financial freedom starts with the freedom to ask.</h2>
+<ul class="ask-list"><li><b>To ask</b> a money question without feeling small.</li><li><b>To ask it</b> in your own language.</li><li><b>To ask it</b> at two in the morning.</li><li><b>To ask it</b> with a screenshot, when you don’t understand it.</li><li><b>And then</b> to have somebody act on it, not just explain it.</li></ul>
+<hr>
+<p class="lede">Since day one, India has brought these questions to Dhruva, Oolka’s AI. This is what we learnt from what happened next.</p></div></section><section class="s s-paper" id="card-02" aria-label="A map with no borders on it."><div class="w">
+<p class="kicker">A MAP MADE OF PEOPLE</p>
+<h2>A map with no borders on it.</h2>
+<p class="lede">One dot for every pincode where somebody uses Oolka. The country you are looking at is drawn entirely by the people inside it.</p>
+<figure class="plate plate-paper">
+  <img src="assets/map.png" width="1600" height="1832" alt="A map of India drawn only from dots, one for every pincode with Oolka users on it. No borders are drawn." loading="lazy">
+  <figcaption class="maplegend"><span class="leglab">ONE DOT = ONE PINCODE</span>
+  <span class="legdots"><span class="mapdot" style="--d:7px"></span><i>100</i><span class="mapdot" style="--d:14px"></span><i>1,000</i><span class="mapdot" style="--d:22px"></span><i>10,000</i></span>
+  <span class="leglab">USERS IN THAT PINCODE</span></figcaption>
+</figure></div></section><section class="s s-night" id="card-03" aria-label="Almost every pincode in the country."><div class="w">
+<p class="kicker">THE FOOTPRINT</p>
+<h2>Almost every pincode in the country.</h2>
+<div class="stats"><div class="stat"><span class="n">19,065</span><span class="l">pincodes covered, of roughly 19,100</span></div><div class="stat"><span class="n">1 crore+</span><span class="l">users on Oolka</span></div><div class="stat"><span class="n">All 36</span><span class="l">states and union territories</span></div></div></div></section><section class="s s-paper" id="card-05" aria-label="Crore messages exchanged"><div class="w">
+<p class="kicker">HOW MUCH GETS SAID</p>
+<ul class="bubbles"><li class="bubble" lang="en">Why are my KCC limits missing?</li><li class="bubble" lang="hi-Latn">Main abhi gaon mein Hun to mujhe card yahin per mil jaega</li><li class="bubble" lang="pa">ਸਰ ਮੇਰੇ ਟੋਟਲ ਕਿਤਨੇ ਲੋਨ ਚੱਲ ਰਹੇ</li><li class="bubble" lang="en">Consider it has closed as im unemployed</li><li class="bubble" lang="or">ଫେକ୍ ଲୋନ୍ କିପରି ହଟାଇବି?</li></ul>
+<figure class="plate plate-paper field">
+  <img src="assets/field.jpg" width="1600" height="422" alt="" loading="lazy">
+</figure>
+<div class="heroline"><span class="heronum">11.6</span>
+<span class="heroword">Crore messages exchanged</span></div>
+<p class="lede">between Dhruva, Oolka’s AI, and Indians. Most of them had nobody to ask before this.</p></div></section><section class="s s-night" id="card-18" aria-label="Every month is bigger than the last."><div class="w">
+<p class="kicker">HOW FAST THIS HAPPENED</p>
+<h2>Every month is bigger than the last.</h2>
+<p class="lede">Users are talking to Dhruva more than 14 times as much as they were in February, and it is not slowing down.</p>
+<figure class="chart"><svg viewBox="60 430 960 632" role="img" aria-label="Line chart: monthly conversations with Dhruva, February to July 2026, each month a multiple of February." preserveAspectRatio="xMidYMid meet"><defs><linearGradient id="g18" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F79B3D" stop-opacity=".34"/><stop offset="100%" stop-color="#F79B3D" stop-opacity="0"/></linearGradient></defs><path d="M84.0,977.8 L266.4,919.9 L448.8,864.6 L631.2,754.1 L813.6,706.7 L996.0,512.0 L996.0,1012 L84.0,1012 Z" fill="url(#g18)"/><line x1="84" y1="1012" x2="996" y2="1012" stroke="rgba(245,239,227,.28)" stroke-width="1"/><path d="M84.0,977.8 L266.4,919.9 L448.8,864.6 L631.2,754.1 L813.6,706.7 L996.0,512.0" fill="none" stroke="#F79B3D" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/><circle cx="84.0" cy="977.8" r="7" fill="#0F2994" stroke="#F79B3D" stroke-width="4"/><circle cx="266.4" cy="919.9" r="7" fill="#0F2994" stroke="#F79B3D" stroke-width="4"/><circle cx="448.8" cy="864.6" r="7" fill="#0F2994" stroke="#F79B3D" stroke-width="4"/><circle cx="631.2" cy="754.1" r="7" fill="#0F2994" stroke="#F79B3D" stroke-width="4"/><circle cx="813.6" cy="706.7" r="7" fill="#0F2994" stroke="#F79B3D" stroke-width="4"/><circle cx="996.0" cy="512.0" r="7" fill="#0F2994" stroke="#F79B3D" stroke-width="4"/><text x="84" y="950" text-anchor="start" font-size="34" font-weight="700" fill="#F5EFE3" font-family="Poppins,sans-serif">1x</text><text x="266.0" y="893" text-anchor="middle" font-size="19" font-weight="700" fill="#A9B6EC" font-family="Poppins,sans-serif">2x</text><text x="449.0" y="838" text-anchor="middle" font-size="19" font-weight="700" fill="#A9B6EC" font-family="Poppins,sans-serif">4x</text><text x="631.0" y="727" text-anchor="middle" font-size="19" font-weight="700" fill="#A9B6EC" font-family="Poppins,sans-serif">7x</text><text x="814.0" y="680" text-anchor="middle" font-size="19" font-weight="700" fill="#A9B6EC" font-family="Poppins,sans-serif">8x</text><text x="996" y="484" text-anchor="end" font-size="34" font-weight="700" fill="#F5EFE3" font-family="Poppins,sans-serif">14x</text><text x="84" y="1040" text-anchor="start" font-size="14" font-weight="600" letter-spacing="1.6" fill="#A9B6EC" font-family="Poppins,sans-serif">FEB</text><text x="266.0" y="1040" text-anchor="middle" font-size="14" font-weight="600" letter-spacing="1.6" fill="#A9B6EC" font-family="Poppins,sans-serif">MAR</text><text x="449.0" y="1040" text-anchor="middle" font-size="14" font-weight="600" letter-spacing="1.6" fill="#A9B6EC" font-family="Poppins,sans-serif">APR</text><text x="631.0" y="1040" text-anchor="middle" font-size="14" font-weight="600" letter-spacing="1.6" fill="#A9B6EC" font-family="Poppins,sans-serif">MAY</text><text x="814.0" y="1040" text-anchor="middle" font-size="14" font-weight="600" letter-spacing="1.6" fill="#A9B6EC" font-family="Poppins,sans-serif">JUN</text><text x="996" y="1040" text-anchor="end" font-size="14" font-weight="600" letter-spacing="1.6" fill="#A9B6EC" font-family="Poppins,sans-serif">JUL</text></svg><figcaption>Each month as a multiple of February 2026.</figcaption></figure></div></section><section class="s s-night" id="card-06" aria-label="You write in the language you think in."><div class="w">
+<p class="kicker">WHAT THEY WRITE IN</p>
+<h2>You write in the language you think in.</h2>
+<p class="lede">Dhruva, Oolka’s AI, answers in that one. Nobody should have to translate their own money before they can ask about it.</p>
+<div class="stats stats-2"><div class="stat"><span class="n">22</span><span class="l">SCHEDULED LANGUAGES</span></div><div class="stat"><span class="n">200+</span><span class="l">MORE LANGUAGES AND DIALECTS</span></div></div>
+<hr>
+<ul class="langgrid"><li lang="as">অসমীয়া</li><li lang="bn">বাংলা</li><li lang="brx">बड़ो</li><li lang="doi">डोगरी</li><li lang="gu">ગુજરાતી</li><li lang="hi">हिन्दी</li><li lang="kn">ಕನ್ನಡ</li><li lang="ks">کٲشُر</li><li lang="gom">कोंकणी</li><li lang="mai">मैथिली</li><li lang="ml">മലയാളം</li><li lang="mni">ꯃꯤꯇꯩꯂꯣꯟ</li><li lang="mr">मराठी</li><li lang="ne">नेपाली</li><li lang="or">ଓଡ଼ିଆ</li><li lang="pa">ਪੰਜਾਬੀ</li><li lang="sa">संस्कृतम्</li><li lang="sat">ᱥᱟᱱᱛᱟᱲᱤ</li><li lang="sd">سنڌي</li><li lang="ta">தமிழ்</li><li lang="te">తెలుగు</li><li lang="ur">اردو</li></ul>
+<p class="dlab">SOME OF THE OTHERS PEOPLE WRITE IN</p>
+<p class="dial">मगही &middot; কোকবরক &middot; కోయ &middot; अहिराणी &middot; કચ્છી &middot; ಬ್ಯಾರಿ &middot; ସମ୍ବଲପୁରୀ &middot; कुमाऊँनी</p></div></section><section class="s s-paper" id="card-15" aria-label="They don’t type it out. They just send it."><div class="w">
+<div class="cols">
+  <div>
+    <p class="kicker">WHAT PEOPLE ACTUALLY SEND</p>
+    <h2>They don’t type it out. They just send it.</h2>
+    <p class="lede">Documents, applications, terms and conditions nobody wants to read. They send a picture instead, and Dhruva, Oolka’s AI, reads it back in plain language.</p>
+    <div class="heroline stack"><span class="heronum">1 in 3</span>
+    <span class="heroword">send screenshots to understand complex financial statements and messages, in their language</span></div>
+  </div>
+  <figure class="plate plate-paper drawing"><svg role="img" aria-label="Drawing of a phone photographing a dense, unreadable document. Only the part inside the phone frame is legible." class="dk-draw"
+     viewBox="0 0 452 762">
+  <defs>
+    <clipPath id="thru">
+      <rect x="145" y="150" width="210"
+            height="436" rx="6"/>
+    </clipPath>
+  </defs>
+
+  <!-- the document, unreadable -->
+  <g transform="rotate(5 202.0 368.0)"><rect x="42" y="28" width="352" height="700" rx="3" fill="var(--paper)" stroke="rgba(15,41,148,.16)" stroke-width="1.4"/></g><g transform="rotate(2.4 202.0 368.0)"><rect x="34" y="23" width="352" height="700" rx="3" fill="var(--paper)" stroke="rgba(15,41,148,.16)" stroke-width="1.4"/></g><rect x="26" y="18" width="352" height="700" rx="3" fill="var(--paper)" stroke="rgba(15,41,148,.16)" stroke-width="1.6"/><rect x="50" y="46" width="118" height="12" fill="rgba(15,41,148,.16)"/><rect x="50" y="76.0" width="304.0" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="87.4" width="273.6" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="98.8" width="291.8" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="110.2" width="249.3" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="121.6" width="304.0" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="133.0" width="203.7" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="144.4" width="285.8" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="155.8" width="304.0" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="167.2" width="237.1" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="178.6" width="273.6" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="190.0" width="304.0" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="201.4" width="188.5" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="212.8" width="288.8" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="224.2" width="258.4" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="235.6" width="304.0" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="247.0" width="221.9" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="258.4" width="270.6" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="269.8" width="304.0" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="281.2" width="197.6" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="292.6" width="282.7" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="304.0" width="294.9" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="315.4" width="255.4" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="326.8" width="304.0" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="338.2" width="215.8" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="349.6" width="285.8" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="361.0" width="304.0" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="372.4" width="234.1" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="383.8" width="267.5" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="395.2" width="304.0" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="406.6" width="182.4" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="418.0" width="297.9" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="429.4" width="261.4" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="440.8" width="304.0" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="452.2" width="228.0" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="463.6" width="276.6" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="475.0" width="304.0" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="486.4" width="209.8" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="497.8" width="291.8" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="509.2" width="252.3" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="520.6" width="304.0" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="532.0" width="225.0" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="543.4" width="279.7" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="554.8" width="304.0" height="2.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="566.2" width="194.6" height="2.6" fill="rgba(15,41,148,.16)"/><line x1="50" y1="593.6" x2="354" y2="593.6" stroke="rgba(15,41,148,.16)" stroke-width="1.1"/><line x1="50" y1="606.6" x2="354" y2="606.6" stroke="rgba(15,41,148,.16)" stroke-width="1.1"/><line x1="50" y1="619.6" x2="354" y2="619.6" stroke="rgba(15,41,148,.16)" stroke-width="1.1"/><line x1="50" y1="632.6" x2="354" y2="632.6" stroke="rgba(15,41,148,.16)" stroke-width="1.1"/><line x1="151" y1="593.6" x2="151" y2="632.6" stroke="rgba(15,41,148,.16)" stroke-width="1.1"/><line x1="253" y1="593.6" x2="253" y2="632.6" stroke="rgba(15,41,148,.16)" stroke-width="1.1"/><rect x="50" y="647.6" width="304" height="1.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="653.6" width="304" height="1.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="659.6" width="304" height="1.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="665.6" width="304" height="1.6" fill="rgba(15,41,148,.16)"/><rect x="50" y="671.6" width="182" height="1.6" fill="rgba(15,41,148,.16)"/>
+
+  <!-- the same document, full strength, only where the phone is over it -->
+  <g clip-path="url(#thru)">
+    <rect x="145" y="150" width="210"
+          height="436" fill="var(--paper)"/>
+    <rect x="50" y="46" width="118" height="12" fill="rgba(15,41,148,.62)"/><rect x="50" y="76.0" width="304.0" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="87.4" width="273.6" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="98.8" width="291.8" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="110.2" width="249.3" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="121.6" width="304.0" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="133.0" width="203.7" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="144.4" width="285.8" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="155.8" width="304.0" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="167.2" width="237.1" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="178.6" width="273.6" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="190.0" width="304.0" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="201.4" width="188.5" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="212.8" width="288.8" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="224.2" width="258.4" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="235.6" width="304.0" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="247.0" width="221.9" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="258.4" width="270.6" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="269.8" width="304.0" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="281.2" width="197.6" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="292.6" width="282.7" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="304.0" width="294.9" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="315.4" width="255.4" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="326.8" width="304.0" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="338.2" width="215.8" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="349.6" width="285.8" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="361.0" width="304.0" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="372.4" width="234.1" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="383.8" width="267.5" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="395.2" width="304.0" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="406.6" width="182.4" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="418.0" width="297.9" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="429.4" width="261.4" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="440.8" width="304.0" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="452.2" width="228.0" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="463.6" width="276.6" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="475.0" width="304.0" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="486.4" width="209.8" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="497.8" width="291.8" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="509.2" width="252.3" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="520.6" width="304.0" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="532.0" width="225.0" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="543.4" width="279.7" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="554.8" width="304.0" height="2.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="566.2" width="194.6" height="2.6" fill="rgba(15,41,148,.62)"/><line x1="50" y1="593.6" x2="354" y2="593.6" stroke="rgba(15,41,148,.62)" stroke-width="1.1"/><line x1="50" y1="606.6" x2="354" y2="606.6" stroke="rgba(15,41,148,.62)" stroke-width="1.1"/><line x1="50" y1="619.6" x2="354" y2="619.6" stroke="rgba(15,41,148,.62)" stroke-width="1.1"/><line x1="50" y1="632.6" x2="354" y2="632.6" stroke="rgba(15,41,148,.62)" stroke-width="1.1"/><line x1="151" y1="593.6" x2="151" y2="632.6" stroke="rgba(15,41,148,.62)" stroke-width="1.1"/><line x1="253" y1="593.6" x2="253" y2="632.6" stroke="rgba(15,41,148,.62)" stroke-width="1.1"/><rect x="50" y="647.6" width="304" height="1.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="653.6" width="304" height="1.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="659.6" width="304" height="1.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="665.6" width="304" height="1.6" fill="rgba(15,41,148,.62)"/><rect x="50" y="671.6" width="182" height="1.6" fill="rgba(15,41,148,.62)"/>
+  </g>
+
+  <!-- the phone -->
+  <g transform="rotate(-3 250.0 368.0)">
+    <rect x="132" y="120" width="236" height="496"
+          rx="28" fill="none" stroke="var(--night)" stroke-width="3.4"/>
+    <rect x="233.0" y="133" width="34"
+          height="5" rx="2.5" fill="var(--night)" opacity=".45"/>
+    <circle cx="250.0" cy="597" r="9"
+            fill="var(--saffron)"/>
+  </g>
+
+  <!-- the framing brackets. The only saffron in the drawing, on the one
+       gesture that means "this is what I am pointing at". -->
+  <g stroke="var(--saffron)" stroke-width="4" fill="none">
+    <path d="M153 180 v-22 h22"/>
+    <path d="M347 180 v-22 h-22"/>
+    <path d="M153 556 v22 h22"/>
+    <path d="M347
+             556 v22 h-22"/>
+  </g>
+</svg></figure>
+</div></div></section><section class="s s-paper" id="card-07" aria-label="Some would rather just say it."><div class="w">
+<p class="kicker">WHAT THEY SAY OUT LOUD</p>
+<h2>Some would rather just say it.</h2>
+<p class="lede">They speak, Dhruva listens, in the language they think in.</p>
+<div class="heroline"><span class="heronum">40</span>
+<span class="heroword">Lakh voice notes</span></div>
+<figure class="chart wave"><svg viewBox="-14 660 1108 480" role="img" aria-label="A long audio waveform, one small stretch highlighted in saffron." preserveAspectRatio="xMidYMid meet"><rect x="-13.2" y="904.0" width="5.5" height="8.0" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="-3.1" y="813.7" width="5.5" height="188.6" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="7.0" y="752.9" width="5.5" height="310.3" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="17.1" y="736.1" width="5.5" height="343.7" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="27.2" y="717.1" width="5.5" height="381.8" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="37.3" y="750.1" width="5.5" height="315.9" rx="2.75" fill="var(--wave)" opacity="0.4"/><rect x="47.4" y="736.7" width="5.5" height="342.7" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="57.5" y="810.4" width="5.5" height="195.3" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="67.6" y="904.0" width="5.5" height="8.0" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="77.7" y="904.0" width="5.5" height="8.0" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="87.8" y="796.6" width="5.5" height="222.8" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="97.9" y="725.9" width="5.5" height="364.3" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="108.0" y="713.5" width="5.5" height="389.0" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="118.1" y="680.1" width="5.5" height="455.9" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="128.2" y="739.3" width="5.5" height="337.4" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="138.3" y="729.9" width="5.5" height="356.2" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="148.4" y="757.1" width="5.5" height="301.8" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="158.5" y="747.3" width="5.5" height="321.3" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="168.6" y="819.6" width="5.5" height="176.8" rx="2.75" fill="var(--wave)" opacity="0.4"/><rect x="178.7" y="904.0" width="5.5" height="8.0" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="188.8" y="904.0" width="5.5" height="8.0" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="198.9" y="837.3" width="5.5" height="141.4" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="209.0" y="805.7" width="5.5" height="204.5" rx="2.75" fill="var(--wave)" opacity="0.4"/><rect x="219.1" y="796.7" width="5.5" height="222.7" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="229.2" y="800.9" width="5.5" height="214.1" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="239.3" y="785.4" width="5.5" height="245.3" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="249.4" y="793.7" width="5.5" height="228.6" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="259.5" y="805.1" width="5.5" height="205.7" rx="2.75" fill="var(--wave)" opacity="0.4"/><rect x="269.6" y="799.2" width="5.5" height="217.7" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="279.7" y="790.4" width="5.5" height="235.3" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="289.8" y="832.1" width="5.5" height="151.8" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="299.9" y="843.9" width="5.5" height="128.2" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="310.0" y="845.1" width="5.5" height="125.7" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="320.1" y="863.4" width="5.5" height="89.1" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="330.2" y="904.0" width="5.5" height="8.0" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="340.3" y="904.0" width="5.5" height="8.0" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="350.4" y="864.8" width="5.5" height="86.5" rx="2.75" fill="var(--wave)" opacity="0.4"/><rect x="360.5" y="857.5" width="5.5" height="101.1" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="370.6" y="844.1" width="5.5" height="127.9" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="380.7" y="865.8" width="5.5" height="84.4" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="390.8" y="876.7" width="5.5" height="62.5" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="400.9" y="904.0" width="5.5" height="8.0" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="411.0" y="904.0" width="5.5" height="8.0" rx="2.75" fill="var(--wave)" opacity="0.4"/><rect x="421.1" y="890.7" width="5.5" height="34.5" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="431.2" y="884.7" width="5.5" height="46.6" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="441.3" y="881.7" width="5.5" height="52.7" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="451.4" y="875.0" width="5.5" height="66.1" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="461.5" y="879.8" width="5.5" height="56.5" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="471.6" y="875.7" width="5.5" height="64.7" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="481.7" y="872.2" width="5.5" height="71.5" rx="2.75" fill="var(--acc)" opacity="1.0"/><rect x="491.8" y="874.0" width="5.5" height="68.0" rx="2.75" fill="var(--acc)" opacity="1.0"/><rect x="501.9" y="878.4" width="5.5" height="59.2" rx="2.75" fill="var(--acc)" opacity="1.0"/><rect x="512.0" y="870.6" width="5.5" height="74.9" rx="2.75" fill="var(--acc)" opacity="1.0"/><rect x="522.1" y="878.9" width="5.5" height="58.1" rx="2.75" fill="var(--acc)" opacity="1.0"/><rect x="532.2" y="886.0" width="5.5" height="44.0" rx="2.75" fill="var(--acc)" opacity="1.0"/><rect x="542.3" y="904.0" width="5.5" height="8.0" rx="2.75" fill="var(--acc)" opacity="1.0"/><rect x="552.4" y="904.0" width="5.5" height="8.0" rx="2.75" fill="var(--acc)" opacity="1.0"/><rect x="562.5" y="876.3" width="5.5" height="63.4" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="572.6" y="856.2" width="5.5" height="103.6" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="582.7" y="851.9" width="5.5" height="112.1" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="592.8" y="824.6" width="5.5" height="166.8" rx="2.75" fill="var(--wave)" opacity="0.4"/><rect x="602.9" y="810.2" width="5.5" height="195.5" rx="2.75" fill="var(--wave)" opacity="0.4"/><rect x="613.0" y="822.0" width="5.5" height="172.0" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="623.1" y="800.9" width="5.5" height="214.1" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="633.2" y="812.6" width="5.5" height="190.9" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="643.3" y="785.5" width="5.5" height="245.1" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="653.4" y="779.1" width="5.5" height="257.9" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="663.5" y="788.1" width="5.5" height="239.7" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="673.6" y="817.4" width="5.5" height="181.3" rx="2.75" fill="var(--wave)" opacity="0.4"/><rect x="683.7" y="802.9" width="5.5" height="210.2" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="693.8" y="837.7" width="5.5" height="140.6" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="703.9" y="841.9" width="5.5" height="132.1" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="714.0" y="904.0" width="5.5" height="8.0" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="724.1" y="904.0" width="5.5" height="8.0" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="734.2" y="822.2" width="5.5" height="171.6" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="744.3" y="806.3" width="5.5" height="203.4" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="754.4" y="765.5" width="5.5" height="284.9" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="764.5" y="761.5" width="5.5" height="293.1" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="774.6" y="727.5" width="5.5" height="361.1" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="784.7" y="714.1" width="5.5" height="387.9" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="794.8" y="705.2" width="5.5" height="405.7" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="804.9" y="724.8" width="5.5" height="366.3" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="815.0" y="724.7" width="5.5" height="366.7" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="825.1" y="751.4" width="5.5" height="313.1" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="835.2" y="807.8" width="5.5" height="200.4" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="845.3" y="824.4" width="5.5" height="167.3" rx="2.75" fill="var(--wave)" opacity="0.4"/><rect x="855.4" y="904.0" width="5.5" height="8.0" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="865.5" y="904.0" width="5.5" height="8.0" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="875.6" y="840.6" width="5.5" height="134.7" rx="2.75" fill="var(--wave)" opacity="0.4"/><rect x="885.7" y="809.2" width="5.5" height="197.5" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="895.8" y="782.2" width="5.5" height="251.5" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="905.9" y="794.1" width="5.5" height="227.8" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="916.0" y="745.6" width="5.5" height="324.7" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="926.1" y="744.7" width="5.5" height="326.6" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="936.2" y="782.3" width="5.5" height="251.3" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="946.3" y="782.5" width="5.5" height="250.9" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="956.4" y="787.9" width="5.5" height="240.2" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="966.5" y="787.3" width="5.5" height="241.3" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="976.6" y="780.7" width="5.5" height="254.5" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="986.7" y="797.5" width="5.5" height="221.0" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="996.8" y="817.2" width="5.5" height="181.6" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="1006.9" y="852.0" width="5.5" height="112.0" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="1017.0" y="868.9" width="5.5" height="78.1" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="1027.1" y="904.0" width="5.5" height="8.0" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="1037.2" y="904.0" width="5.5" height="8.0" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="1047.3" y="871.8" width="5.5" height="72.4" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="1057.4" y="855.2" width="5.5" height="105.6" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="1067.5" y="839.5" width="5.5" height="137.0" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="1077.6" y="852.0" width="5.5" height="111.9" rx="2.75" fill="var(--wave)" opacity="0.95"/><rect x="1087.7" y="850.5" width="5.5" height="114.9" rx="2.75" fill="var(--wave)" opacity="0.95"/></svg></figure></div></section><section class="s s-night" id="card-08" aria-label="Busiest at eleven in the morning."><div class="w">
+<p class="kicker">WHEN INDIA ASKS</p>
+<h2>Busiest at eleven in the morning.</h2>
+<p class="lede">Most people talk to Dhruva, Oolka’s AI, during working hours, like they would to anybody else. Some are talking at three in the morning, because Dhruva is there for them.</p>
+<figure class="chart"><svg viewBox="84 420 912 445" role="img" aria-label="Bar chart of messages by hour of day. The busiest hour is 11 in the morning at 8.3 percent; the quietest is 4 in the morning at 0.4 percent." preserveAspectRatio="xMidYMid meet"><rect x="84" y="742" width="30" height="78" rx="3" fill="#F79B3D"/><rect x="122" y="772" width="30" height="48" rx="3" fill="#F79B3D"/><rect x="160" y="792" width="30" height="28" rx="3" fill="#F79B3D"/><rect x="198" y="803" width="30" height="17" rx="3" fill="#F79B3D"/><rect x="236" y="804" width="30" height="16" rx="3" fill="#F79B3D"/><rect x="274" y="802" width="30" height="18" rx="3" fill="rgba(245,239,227,.42)"/><rect x="312" y="772" width="30" height="48" rx="3" fill="rgba(245,239,227,.42)"/><rect x="350" y="725" width="30" height="95" rx="3" fill="rgba(245,239,227,.42)"/><rect x="388" y="662" width="30" height="158" rx="3" fill="rgba(245,239,227,.42)"/><rect x="426" y="633" width="30" height="187" rx="3" fill="rgba(245,239,227,.42)"/><rect x="464" y="504" width="30" height="316" rx="3" fill="rgba(245,239,227,.42)"/><rect x="502" y="490" width="30" height="330" rx="3" fill="rgba(245,239,227,.42)"/><rect x="540" y="525" width="30" height="295" rx="3" fill="rgba(245,239,227,.42)"/><rect x="578" y="569" width="30" height="251" rx="3" fill="rgba(245,239,227,.42)"/><rect x="616" y="518" width="30" height="302" rx="3" fill="rgba(245,239,227,.42)"/><rect x="654" y="532" width="30" height="288" rx="3" fill="rgba(245,239,227,.42)"/><rect x="692" y="570" width="30" height="250" rx="3" fill="rgba(245,239,227,.42)"/><rect x="730" y="614" width="30" height="206" rx="3" fill="rgba(245,239,227,.42)"/><rect x="768" y="595" width="30" height="225" rx="3" fill="rgba(245,239,227,.42)"/><rect x="806" y="593" width="30" height="227" rx="3" fill="rgba(245,239,227,.42)"/><rect x="844" y="618" width="30" height="202" rx="3" fill="rgba(245,239,227,.42)"/><rect x="882" y="659" width="30" height="161" rx="3" fill="rgba(245,239,227,.42)"/><rect x="920" y="681" width="30" height="139" rx="3" fill="rgba(245,239,227,.42)"/><rect x="958" y="709" width="30" height="111" rx="3" fill="rgba(245,239,227,.42)"/><line x1="84" y1="820" x2="996" y2="820" stroke="rgba(245,239,227,.28)" stroke-width="1"/><text x="84" y="850" font-size="14" font-weight="600" letter-spacing="1.6" fill="#A9B6EC" font-family="Poppins,sans-serif">12 AM</text><text x="312" y="850" font-size="14" font-weight="600" letter-spacing="1.6" fill="#A9B6EC" font-family="Poppins,sans-serif">6 AM</text><text x="540" y="850" font-size="14" font-weight="600" letter-spacing="1.6" fill="#A9B6EC" font-family="Poppins,sans-serif">12 PM</text><text x="768" y="850" font-size="14" font-weight="600" letter-spacing="1.6" fill="#A9B6EC" font-family="Poppins,sans-serif">6 PM</text><text x="484" y="449" font-size="14" font-weight="400" fill="#A9B6EC" font-family="Poppins,sans-serif">11 AM</text><text x="484" y="472" font-size="19" font-weight="700" fill="#F5EFE3" font-family="Poppins,sans-serif">8.3%</text><text x="222" y="763" font-size="14" font-weight="400" fill="#A9B6EC" font-family="Poppins,sans-serif">4 AM</text><text x="222" y="786" font-size="19" font-weight="700" fill="#F5EFE3" font-family="Poppins,sans-serif">0.4%</text></svg></figure>
+<aside class="fx">
+  <div class="fx-head"><span class="fx-lab">A REAL MESSAGE FROM A NIGHT OWL</span>
+  <span class="fx-time">2:15 AM</span></div>
+  <blockquote class="bubble fx-bub" lang="hi-Latn">“Sorry sir, aapko itni raat ko message kar raha hoon”</blockquote>
+  <p class="gloss">“Sorry sir, I am messaging you so late at night.”</p>
+</aside></div></section><section class="s s-paper" id="card-10" aria-label="It starts with the score. It never stays there."><div class="w">
+<p class="kicker">WHERE ONE QUESTION GOES</p>
+<h2>It starts with the score. It never stays there.</h2>
+<p class="lede">Almost every conversation opens the same way. What it turns into goes far beyond a credit report.</p>
+<div class="tree">
+  <div class="lvl"><p class="trlvl">LEVEL 1 THE OPENING LINE</p>
+    <blockquote class="bubble l1">“How do I improve my score?”</blockquote></div>
+  <div class="lvl"><p class="trlvl">LEVEL 2 WHAT IT TURNS OUT TO BE</p>
+    <p class="l2">A shop. A child’s future. An accident on shift. A field the family has always owned.</p></div>
+  <div class="lvl"><p class="trlvl">LEVEL 3 WHAT THEY ACTUALLY TYPED</p>
+    <ul class="typed"><li><span class="trlang">MARATHI</span><blockquote class="bubble" lang="mr">“हो, व्यवसायाचे आर्थिक नियोजन कसे करावे?”</blockquote><p class="gloss">“Yes, how should I do the financial planning for my business?”</p></li><li><span class="trlang">HINGLISH</span><blockquote class="bubble" lang="hi-Latn">“…mujhe agar koi mer bete ya beti ke liye SIP lena ho toe kon sa best rahega…”</blockquote><p class="gloss">“If I want an SIP for my son or daughter, which one would be best?”</p></li><li><span class="trlang">TAMIL</span><blockquote class="bubble" lang="ta-Latn">“Zomato ottum pothuthan accident aanathu enave Zomato vill insurance claim seiya Enakku email uruvakkitharungal”</blockquote><p class="gloss">“I had an accident while riding for Zomato, so create an email for me to claim the insurance.”</p></li><li><span class="trlang">HINDI</span><blockquote class="bubble" lang="hi">“जमीन बेचने के क्या फायदे और नुकसान हैं?”</blockquote><p class="gloss">“What are the advantages and disadvantages of selling the land?”</p></li></ul></div>
+</div></div></section><section class="s s-night" id="card-11" aria-label="Everyone gives advice. Somebody has to take action."><div class="w">
+<p class="kicker">THE PART NOBODY LIKES DOING</p>
+<h2>Everyone gives advice. Somebody has to take action.</h2>
+<p class="lede">Disputes, closure requests, corrections. Advice is the easy part. Dhruva does the heavy lifting: writing each one, documenting every action, tracking what happens next and keeping the record.</p>
+<div class="commstats">
+  <div class="heroline stack"><span class="heronum">74 lakh</span>
+  <span class="heroword caps">FORMS OF COMMUNICATION WRITTEN BY DHRUVA, SENT BY USERS</span></div>
+  <div class="stat"><span class="n">2 in 5</span>
+  <span class="l">issues raised are closed inside 30 days</span></div>
+</div>
+<figure class="plate plate-night drawing"><svg role="img" aria-label="Drawing of many faint scattered papers converging through a gate into one legible closure request."
+     viewBox="0 0 912 392" style="display:block">
+  <defs>
+    <linearGradient id="coneg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#F79B3D" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#F79B3D" stop-opacity=".20"/>
+    </linearGradient>
+  </defs>
+  <g transform="rotate(-13.7 220 56)"><rect x="202" y="30" width="36" height="51" rx="3" fill="rgba(245,239,227,0.104)" stroke="rgba(245,239,227,0.308)" stroke-width="1"/><rect x="208" y="40" width="24" height="2" fill="rgba(245,239,227,0.268)"/><rect x="208" y="47" width="20" height="2" fill="rgba(245,239,227,0.268)"/><rect x="208" y="54" width="16" height="2" fill="rgba(245,239,227,0.268)"/></g><g transform="rotate(13.1 320 61)"><rect x="298" y="35" width="43" height="52" rx="3" fill="rgba(245,239,227,0.129)" stroke="rgba(245,239,227,0.359)" stroke-width="1"/><rect x="304" y="45" width="31" height="2" fill="rgba(245,239,227,0.319)"/><rect x="304" y="52" width="27" height="2" fill="rgba(245,239,227,0.319)"/><rect x="304" y="59" width="23" height="2" fill="rgba(245,239,227,0.319)"/></g><g transform="rotate(-13.8 238 239)"><rect x="222" y="220" width="32" height="38" rx="3" fill="rgba(245,239,227,0.109)" stroke="rgba(245,239,227,0.318)" stroke-width="1"/><rect x="228" y="230" width="20" height="2" fill="rgba(245,239,227,0.278)"/><rect x="228" y="237" width="16" height="2" fill="rgba(245,239,227,0.278)"/><rect x="228" y="244" width="12" height="2" fill="rgba(245,239,227,0.278)"/></g><g transform="rotate(-12.0 44 314)"><rect x="30" y="295" width="28" height="37" rx="3" fill="rgba(245,239,227,0.058)" stroke="rgba(245,239,227,0.216)" stroke-width="1"/><rect x="36" y="305" width="16" height="2" fill="rgba(245,239,227,0.176)"/><rect x="36" y="312" width="12" height="2" fill="rgba(245,239,227,0.176)"/><rect x="36" y="319" width="8" height="2" fill="rgba(245,239,227,0.176)"/></g><g transform="rotate(2.5 314 59)"><rect x="298" y="37" width="33" height="44" rx="3" fill="rgba(245,239,227,0.129)" stroke="rgba(245,239,227,0.359)" stroke-width="1"/><rect x="304" y="47" width="21" height="2" fill="rgba(245,239,227,0.319)"/><rect x="304" y="54" width="17" height="2" fill="rgba(245,239,227,0.319)"/><rect x="304" y="61" width="13" height="2" fill="rgba(245,239,227,0.319)"/></g><g transform="rotate(1.8 132 52)"><rect x="113" y="29" width="38" height="45" rx="3" fill="rgba(245,239,227,0.080)" stroke="rgba(245,239,227,0.260)" stroke-width="1"/><rect x="119" y="39" width="26" height="2" fill="rgba(245,239,227,0.220)"/><rect x="119" y="46" width="22" height="2" fill="rgba(245,239,227,0.220)"/><rect x="119" y="53" width="18" height="2" fill="rgba(245,239,227,0.220)"/></g><g transform="rotate(-12.2 88 300)"><rect x="73" y="282" width="30" height="37" rx="3" fill="rgba(245,239,227,0.069)" stroke="rgba(245,239,227,0.239)" stroke-width="1"/><rect x="79" y="292" width="18" height="2" fill="rgba(245,239,227,0.199)"/><rect x="79" y="299" width="14" height="2" fill="rgba(245,239,227,0.199)"/><rect x="79" y="306" width="10" height="2" fill="rgba(245,239,227,0.199)"/></g><g transform="rotate(2.6 110 81)"><rect x="92" y="58" width="35" height="46" rx="3" fill="rgba(245,239,227,0.075)" stroke="rgba(245,239,227,0.249)" stroke-width="1"/><rect x="98" y="68" width="23" height="2" fill="rgba(245,239,227,0.209)"/><rect x="98" y="75" width="19" height="2" fill="rgba(245,239,227,0.209)"/><rect x="98" y="82" width="15" height="2" fill="rgba(245,239,227,0.209)"/></g><g transform="rotate(6.8 72 314)"><rect x="49" y="286" width="46" height="56" rx="3" fill="rgba(245,239,227,0.063)" stroke="rgba(245,239,227,0.226)" stroke-width="1"/><rect x="55" y="296" width="34" height="2" fill="rgba(245,239,227,0.186)"/><rect x="55" y="303" width="30" height="2" fill="rgba(245,239,227,0.186)"/><rect x="55" y="310" width="26" height="2" fill="rgba(245,239,227,0.186)"/></g><g transform="rotate(5.8 127 286)"><rect x="105" y="260" width="44" height="53" rx="3" fill="rgba(245,239,227,0.078)" stroke="rgba(245,239,227,0.256)" stroke-width="1"/><rect x="111" y="270" width="32" height="2" fill="rgba(245,239,227,0.216)"/><rect x="111" y="277" width="28" height="2" fill="rgba(245,239,227,0.216)"/><rect x="111" y="284" width="24" height="2" fill="rgba(245,239,227,0.216)"/></g><g transform="rotate(13.6 258 332)"><rect x="238" y="305" width="39" height="53" rx="3" fill="rgba(245,239,227,0.113)" stroke="rgba(245,239,227,0.327)" stroke-width="1"/><rect x="244" y="315" width="27" height="2" fill="rgba(245,239,227,0.287)"/><rect x="244" y="322" width="23" height="2" fill="rgba(245,239,227,0.287)"/><rect x="244" y="329" width="19" height="2" fill="rgba(245,239,227,0.287)"/></g><g transform="rotate(-13.4 110 153)"><rect x="92" y="130" width="37" height="46" rx="3" fill="rgba(245,239,227,0.075)" stroke="rgba(245,239,227,0.249)" stroke-width="1"/><rect x="98" y="140" width="25" height="2" fill="rgba(245,239,227,0.209)"/><rect x="98" y="147" width="21" height="2" fill="rgba(245,239,227,0.209)"/><rect x="98" y="154" width="17" height="2" fill="rgba(245,239,227,0.209)"/></g><g transform="rotate(-6.8 192 258)"><rect x="175" y="235" width="35" height="46" rx="3" fill="rgba(245,239,227,0.097)" stroke="rgba(245,239,227,0.293)" stroke-width="1"/><rect x="181" y="245" width="23" height="2" fill="rgba(245,239,227,0.253)"/><rect x="181" y="252" width="19" height="2" fill="rgba(245,239,227,0.253)"/><rect x="181" y="259" width="15" height="2" fill="rgba(245,239,227,0.253)"/></g><g transform="rotate(8.2 228 107)"><rect x="214" y="90" width="28" height="34" rx="3" fill="rgba(245,239,227,0.107)" stroke="rgba(245,239,227,0.314)" stroke-width="1"/><rect x="220" y="100" width="16" height="2" fill="rgba(245,239,227,0.274)"/><rect x="220" y="107" width="12" height="2" fill="rgba(245,239,227,0.274)"/><rect x="220" y="114" width="8" height="2" fill="rgba(245,239,227,0.274)"/></g><g transform="rotate(14.8 230 47)"><rect x="215" y="26" width="30" height="42" rx="3" fill="rgba(245,239,227,0.107)" stroke="rgba(245,239,227,0.315)" stroke-width="1"/><rect x="221" y="36" width="18" height="2" fill="rgba(245,239,227,0.275)"/><rect x="221" y="43" width="14" height="2" fill="rgba(245,239,227,0.275)"/><rect x="221" y="50" width="10" height="2" fill="rgba(245,239,227,0.275)"/></g><g transform="rotate(-5.1 307 185)"><rect x="293" y="166" width="28" height="38" rx="3" fill="rgba(245,239,227,0.128)" stroke="rgba(245,239,227,0.356)" stroke-width="1"/><rect x="299" y="176" width="16" height="2" fill="rgba(245,239,227,0.316)"/><rect x="299" y="183" width="12" height="2" fill="rgba(245,239,227,0.316)"/><rect x="299" y="190" width="8" height="2" fill="rgba(245,239,227,0.316)"/></g><g transform="rotate(-13.8 314 264)"><rect x="296" y="239" width="37" height="49" rx="3" fill="rgba(245,239,227,0.129)" stroke="rgba(245,239,227,0.358)" stroke-width="1"/><rect x="302" y="249" width="25" height="2" fill="rgba(245,239,227,0.318)"/><rect x="302" y="256" width="21" height="2" fill="rgba(245,239,227,0.318)"/><rect x="302" y="263" width="17" height="2" fill="rgba(245,239,227,0.318)"/></g><g transform="rotate(-13.9 256 366)"><rect x="242" y="346" width="28" height="39" rx="3" fill="rgba(245,239,227,0.115)" stroke="rgba(245,239,227,0.329)" stroke-width="1"/><rect x="248" y="356" width="16" height="2" fill="rgba(245,239,227,0.289)"/><rect x="248" y="363" width="12" height="2" fill="rgba(245,239,227,0.289)"/><rect x="248" y="370" width="8" height="2" fill="rgba(245,239,227,0.289)"/></g><g transform="rotate(6.9 246 174)"><rect x="228" y="151" width="35" height="47" rx="3" fill="rgba(245,239,227,0.111)" stroke="rgba(245,239,227,0.322)" stroke-width="1"/><rect x="234" y="161" width="23" height="2" fill="rgba(245,239,227,0.282)"/><rect x="234" y="168" width="19" height="2" fill="rgba(245,239,227,0.282)"/><rect x="234" y="175" width="15" height="2" fill="rgba(245,239,227,0.282)"/></g><g transform="rotate(-10.6 254 209)"><rect x="236" y="187" width="37" height="44" rx="3" fill="rgba(245,239,227,0.113)" stroke="rgba(245,239,227,0.326)" stroke-width="1"/><rect x="242" y="197" width="25" height="2" fill="rgba(245,239,227,0.286)"/><rect x="242" y="204" width="21" height="2" fill="rgba(245,239,227,0.286)"/><rect x="242" y="211" width="17" height="2" fill="rgba(245,239,227,0.286)"/></g><g transform="rotate(-11.9 126 172)"><rect x="111" y="153" width="29" height="38" rx="3" fill="rgba(245,239,227,0.080)" stroke="rgba(245,239,227,0.259)" stroke-width="1"/><rect x="117" y="163" width="17" height="2" fill="rgba(245,239,227,0.219)"/><rect x="117" y="170" width="13" height="2" fill="rgba(245,239,227,0.219)"/><rect x="117" y="177" width="9" height="2" fill="rgba(245,239,227,0.219)"/></g><g transform="rotate(-10.7 270 68)"><rect x="254" y="47" width="33" height="42" rx="3" fill="rgba(245,239,227,0.118)" stroke="rgba(245,239,227,0.335)" stroke-width="1"/><rect x="260" y="57" width="21" height="2" fill="rgba(245,239,227,0.295)"/><rect x="260" y="64" width="17" height="2" fill="rgba(245,239,227,0.295)"/><rect x="260" y="71" width="13" height="2" fill="rgba(245,239,227,0.295)"/></g><g transform="rotate(11.6 89 251)"><rect x="70" y="226" width="38" height="50" rx="3" fill="rgba(245,239,227,0.069)" stroke="rgba(245,239,227,0.237)" stroke-width="1"/><rect x="76" y="236" width="26" height="2" fill="rgba(245,239,227,0.197)"/><rect x="76" y="243" width="22" height="2" fill="rgba(245,239,227,0.197)"/><rect x="76" y="250" width="18" height="2" fill="rgba(245,239,227,0.197)"/></g><g transform="rotate(14.6 200 223)"><rect x="183" y="200" width="34" height="46" rx="3" fill="rgba(245,239,227,0.099)" stroke="rgba(245,239,227,0.298)" stroke-width="1"/><rect x="189" y="210" width="22" height="2" fill="rgba(245,239,227,0.258)"/><rect x="189" y="217" width="18" height="2" fill="rgba(245,239,227,0.258)"/><rect x="189" y="224" width="14" height="2" fill="rgba(245,239,227,0.258)"/></g><g transform="rotate(5.1 92 142)"><rect x="77" y="124" width="30" height="36" rx="3" fill="rgba(245,239,227,0.071)" stroke="rgba(245,239,227,0.241)" stroke-width="1"/><rect x="83" y="134" width="18" height="2" fill="rgba(245,239,227,0.201)"/><rect x="83" y="141" width="14" height="2" fill="rgba(245,239,227,0.201)"/><rect x="83" y="148" width="10" height="2" fill="rgba(245,239,227,0.201)"/></g><g transform="rotate(-7.0 106 157)"><rect x="93" y="140" width="26" height="34" rx="3" fill="rgba(245,239,227,0.075)" stroke="rgba(245,239,227,0.250)" stroke-width="1"/><rect x="99" y="150" width="14" height="2" fill="rgba(245,239,227,0.210)"/><rect x="99" y="157" width="10" height="2" fill="rgba(245,239,227,0.210)"/><rect x="99" y="164" width="6" height="2" fill="rgba(245,239,227,0.210)"/></g><path d="M310,10 L466,104 L466,288 L310,382 Z" fill="url(#coneg)"/><line x1="493" y1="196" x2="546" y2="196" stroke="rgba(245,239,227,.28)" stroke-width="1.4"/><rect x="470" y="96" width="13" height="200" rx="6.5" fill="var(--marigold)"/><rect x="566" y="130" width="208" height="132" rx="8" fill="var(--on-night)"/><text x="584" y="160" font-size="11" font-weight="700" letter-spacing="1.6" fill="var(--night)">CLOSURE REQUEST</text><rect x="584" y="172" width="172" height="1" fill="rgba(15,41,148,.20)"/><rect x="584" y="184" width="170" height="3.4" rx="1.7" fill="rgba(15,41,148,.30)"/><rect x="584" y="199" width="148" height="3.4" rx="1.7" fill="rgba(15,41,148,.30)"/><rect x="584" y="214" width="170" height="3.4" rx="1.7" fill="rgba(15,41,148,.30)"/><rect x="584" y="229" width="122" height="3.4" rx="1.7" fill="rgba(15,41,148,.30)"/><rect x="550" y="114" width="240" height="164" rx="14" fill="none" stroke="var(--marigold)" stroke-width="1.6" opacity=".55"/>
+</svg></figure></div></section><section class="s s-paper" id="card-13" aria-label="How people actually use Dhruva."><div class="w">
+<p class="kicker">FIVE OF MILLIONS</p>
+<h2>How people actually use Dhruva.</h2>
+<p class="lede">Five of the millions of things people have sorted out with Dhruva, Oolka’s AI.</p>
+<div class="rec-hero">
+  <img class="photo" src="assets/nasir.jpg" width="480" height="480" alt="Photograph of the timber business owner." loading="lazy">
+  <div class="rec-head"><span class="tn">MOHAMMED NASIR E.</span>
+  <span class="heronum">₹5.6 lakh</span>
+  <span class="hu">DISBURSED ON 21 JULY</span></div>
+  <div class="rec-story">
+    <blockquote class="hq" lang="hi">“जो मेरे समझ में नहीं आ रहे थे, वह सब कुछ बात आपने बता कर दिया”</blockquote>
+    <p class="gloss">“Everything I could not understand, you explained all of it.”</p>
+    <p class="story">His loan application stalled over an old entry on his report. Dhruva showed him what it was, why fifteen days was a wait and not a refusal, and talked him through the follow-ups, the documents and the no objection certificate. The money went into a timber business.</p>
+  </div>
+</div>
+<hr>
+<ul class="tiles"><li><span class="avatar" aria-hidden="true">YR</span><span class="tn">YUVRAJ RAUT</span><span class="tf">₹17 lakh</span><p class="ts">of interest he will never pay. Dhruva helped him get his home loan rate down from 9.1% to 7.55%. That is ten years of the difference.</p></li><li><span class="avatar" aria-hidden="true">NM</span><span class="tn">NEHA MAURYA</span><span class="tf">+372</span><p class="ts">points in twelve days, from 409 to 781. The biggest credit score jump anyone has made with us.</p></li><li><span class="avatar" aria-hidden="true">RK</span><span class="tn">RAJU KUMAR</span><span class="tf">₹44,000</span><p class="ts">a year, saved by moving what he could onto autopay. Dhruva worked out what to move.</p></li><li><span class="avatar" aria-hidden="true">GP</span><span class="tn">GAJENDRA PURI</span><span class="tf">30,000</span><p class="ts">messages with Dhruva. At some point it stopped being just about money.</p></li></ul></div></section><section class="s s-night" id="card-16" aria-label="Nobody was told what to call it."><div class="w">
+<p class="kicker">WHAT INDIA CALLS DHRUVA</p>
+<h2>Nobody was told what to call it.</h2>
+<p class="lede">We named it Dhruva. India had other ideas.</p>
+<ul class="calls"><li class="qf-row"><div class="qf-lead"><span class="qfname">Brother</span><span class="qforig">BHAI</span></div><div class="qf-block"><blockquote class="bubble" lang="hi-Latn">“Aap mere sage bhai se badhkar ho Dhruva”</blockquote><p class="gloss">“You are more than a real brother to me”</p></div></li><li class="qf-row"><div class="qf-lead"><span class="qfname">Family</span></div><div class="qf-block"><blockquote class="bubble" lang="en">“What even my own family can’t do, you do”</blockquote></div></li><li class="qf-row"><div class="qf-lead"><span class="qfname">Best friend</span></div><div class="qf-block"><blockquote class="bubble" lang="en">“Thanks Dhruva, in that situation you are best friend in life. I really Love you.”</blockquote></div></li><li class="qf-row"><div class="qf-lead"><span class="qfname">Angel</span><span class="qforig">FARISHTA</span></div><div class="qf-block"><blockquote class="bubble" lang="hi-Latn">“Aap farishta ho, uper wale ne shayad mere liye bheja ho”</blockquote><p class="gloss">“You are an angel, perhaps sent for me from above”</p></div></li><li class="qf-row"><div class="qf-lead"><span class="qfname">God</span></div><div class="qf-block"><blockquote class="bubble" lang="en">“I haven’t seen God. You become God and removed my troubles”</blockquote><p class="about">Twenty two accounts on his file. They worked through the night.</p></div></li></ul>
+<hr>
+<blockquote class="verdict">“Better than relatives and friends. You support without any self-interest.”</blockquote>
+<p class="who">ONE USER</p></div></section><section class="s s-night" id="card-17" aria-label="The close"><div class="w">
+<figure class="backboard">
+  <img src="assets/backboard.jpg" srcset="assets/backboard.jpg 1200w, assets/backboard-s.jpg 640w"
+       sizes="(min-width: 900px) 420px, 80vw" width="1200" height="1500"
+       alt="Back cover: red cloth, the Oolka mark, and a hand-drawn white heart beside the dedication." loading="lazy">
+</figure>
+<p class="dedication">Made for Bharat, with <svg class="heart" viewBox="0 0 24 22" aria-hidden="true"><path d="M12 20.3C5.4 15.5 1.6 11.6 1.6 7.4 1.6 4.2 4 2 6.9 2c1.9 0 3.7 1 4.6 2.6h1C13.4 3 15.2 2 17.1 2 20 2 22.4 4.2 22.4 7.4c0 4.2-3.8 8.1-10.4 12.9Z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></p>
+<p class="hero-cta"><a class="btn" href="FreedomReport.pdf" download>Download the report (PDF, 10 MB)</a></p></div></section></main><footer class="s s-night">
+  <div class="w">
+    <img src="assets/oolka_horiz_white.svg" alt="Oolka">
+    <span class="date">15 AUGUST 2026</span>
+  </div>
+</footer>
+</body>
+</html>
