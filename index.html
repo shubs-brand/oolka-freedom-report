@@ -35,7 +35,7 @@ body{font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
    paper sections take the night side of the same token system; nothing new. */
 .s-paper{--g:var(--paper);--t1:var(--ink);--t2:var(--ink-2);
   --head:var(--night);--acc:var(--saffron);--hero:var(--night);
-  --rule:rgba(43,43,43,.16);--wave:#0F2994;
+  --rule:rgba(43,43,43,.16);--wave:#0F2994;--hu:var(--green);
   --bub-bg:#FFFFFF;--bub-fg:var(--night);--bub-line:rgba(15,41,148,.18)}
 .s-night{--g:var(--night);--t1:var(--on-night);--t2:var(--on-night-2);
   --head:var(--on-night);--acc:var(--marigold);--hero:var(--on-night);
@@ -45,13 +45,17 @@ body{font-family:'Poppins',system-ui,-apple-system,'Segoe UI',sans-serif;
   body{background:var(--night);color:var(--on-night)}
   .s-paper{--g:var(--night);--t1:var(--on-night);--t2:var(--on-night-2);
     --head:var(--on-night);--acc:var(--marigold);--hero:var(--on-night);
-    --rule:rgba(245,239,227,.22);--wave:#F5EFE3;
+    --rule:rgba(245,239,227,.22);--wave:#F5EFE3;--hu:var(--marigold);
     --bub-bg:var(--on-night);--bub-fg:var(--night);--bub-line:transparent}
+  /* every seam is night-on-night in dark, so every seam gets the hairline */
+  main section + section > .w{border-top:1px solid var(--rule);
+    padding-top:clamp(40px,6vw,64px)}
 }
 .s{background:var(--g);color:var(--t1);padding:clamp(56px,9vw,110px) 24px}
 .w{max-width:1000px;margin:0 auto}
 .kicker{font-size:13px;font-weight:600;letter-spacing:.28em;
-  text-transform:uppercase;color:var(--t2);margin-bottom:22px}
+  text-transform:uppercase;color:var(--t2);
+  margin-bottom:clamp(12px,1.6vw,18px)}
 h1{font-size:clamp(38px,7vw,72px);font-weight:700;line-height:1.04;
   letter-spacing:-.02em;color:var(--head)}
 h2{font-size:clamp(30px,5vw,54px);font-weight:700;line-height:1.06;
@@ -94,10 +98,10 @@ hr{border:0;height:1px;background:var(--rule);margin:clamp(32px,5vw,52px) 0}
 .heroline{margin-top:clamp(28px,5vw,48px)}
 .heroline .heronum{font-size:clamp(64px,11vw,124px);font-weight:700;
   letter-spacing:-.04em;line-height:.95;color:var(--hero)}
-.heroline .heroword{display:block;font-size:clamp(19px,2.6vw,26px);
-  font-weight:600;letter-spacing:.06em;text-transform:uppercase;
-  color:var(--acc);margin-top:10px;max-width:24em}
-.heroline .heroword.caps{letter-spacing:.1em;font-size:clamp(16px,2vw,21px)}
+.heroline .heroword{display:block;font-size:clamp(15px,1.7vw,20px);
+  font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--acc);margin-top:12px;max-width:24em}
+.heroline .heroword.caps{letter-spacing:.1em;font-size:clamp(14px,1.6vw,18px)}
 .heroline.stack{margin-top:clamp(22px,4vw,36px)}
 
 /* chat bubbles */
@@ -189,7 +193,7 @@ blockquote.bubble{border-bottom-left-radius:6px;font-weight:600}
   letter-spacing:-.03em;line-height:1;color:var(--hero);display:block;
   margin:8px 0}
 .hu{display:block;font-size:15px;font-weight:600;letter-spacing:.14em;
-  color:var(--acc)}
+  color:var(--hu,var(--acc))}
 .hq{font-size:clamp(20px,3vw,27px);font-weight:600;line-height:1.4;
   color:var(--head);margin-top:14px}
 .story{font-size:clamp(16px,2vw,20px);line-height:1.55;color:var(--t2);
@@ -256,12 +260,38 @@ footer img{height:30px}
 footer .date{font-size:12px;font-weight:600;letter-spacing:.18em;
   color:var(--on-night-2)}
 
+/* ---------- design-audit fixes, 14 Aug. Fifteen findings, all applied
+   within the two-ground token system; the audit itself is in HANDOFF_9. */
+html{background:var(--night)}
+/* same-ground seams: a token hairline restores the deck's page cadence
+   where two paper or two night sections would otherwise fuse */
+main section.s-night + section.s-night > .w,
+main section.s-paper + section.s-paper > .w{
+  border-top:1px solid var(--rule);padding-top:clamp(40px,6vw,64px)}
+/* mobile chart labels: SVG text scales with the viewBox, so at phone width
+   the attribute sizes render around 5px. CSS beats presentation attributes. */
+@media (max-width:600px){
+  #card-18 .chart svg text{font-size:30px}
+  #card-08 .chart svg text{font-size:28px}
+}
+.btn:focus-visible{outline:3px solid var(--t1);outline-offset:3px}
+.bar a.dl:focus-visible{outline:2px solid var(--marigold);outline-offset:4px}
+.bar a.dl{padding:14px 12px;margin:-14px -12px}
+#card-11 .plate.drawing{margin-left:auto;margin-right:auto}
+@media (max-width:859px){.cols .drawing{margin-left:auto;margin-right:auto}}
+@media (min-width:640px){#card-03 .stats{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:600px) and (max-width:899px){
+  .tiles{grid-template-columns:repeat(2,1fr)}}
+#card-17 .btn{padding:18px 40px;font-size:18px}
+#card-17 .hero-cta{margin-top:34px}
+.fx{max-width:720px}
+
 /* ---------- the scroll rail. The deck's 15-segment progress rail, one
    segment per page, lit as the reader passes it. Not motion for its own
    sake: it is the deck's own footer motif doing its old job. */
 .prail{position:absolute;left:0;right:0;bottom:-1px;height:4px;
   display:flex;gap:3px}
-.prail i{flex:1 1 0;background:rgba(245,239,227,.12);
+.prail i{flex:1 1 0;background:rgba(245,239,227,.24);
   transition:background .45s ease}
 .prail i.on{background:var(--marigold)}
 
@@ -312,7 +342,7 @@ footer .date{font-size:12px;font-weight:600;letter-spacing:.18em;
   html.js .chart.in .wv{animation:riseY .55s cubic-bezier(.22,.61,.36,1) both;
     animation-delay:calc(var(--i,0)*7ms)}
   html.js .chart.in .wv-acc{animation:riseY .55s cubic-bezier(.22,.61,.36,1) both,
-    pulse 2.6s ease-in-out 2s infinite;
+    pulse 2.6s ease-in-out 2s 3;
     animation-delay:calc(var(--i,0)*7ms),2s}
 
   /* the map settles rather than appears */
@@ -320,8 +350,8 @@ footer .date{font-size:12px;font-weight:600;letter-spacing:.18em;
     transition:transform 1.8s cubic-bezier(.22,.61,.36,1) .15s}
   html.js .plate.kb.in img{transform:scale(1)}
 
-  /* the cover floats like the object it is */
-  .hero-cover img{animation:floaty 7s ease-in-out 1.6s infinite}
+  /* the cover floats like the object it is, then settles like one too */
+  .hero-cover img{animation:floaty 7s ease-in-out 1.6s 3}
 
   /* the back-board heart is drawn by hand, so here the hand draws it */
   html.js .dedication .hrtp{stroke-dasharray:1;stroke-dashoffset:1}
@@ -343,7 +373,7 @@ footer .date{font-size:12px;font-weight:600;letter-spacing:.18em;
 <nav class="bar" aria-label="Report header">
   <img src="assets/oolka_horiz_white.svg" alt="Oolka">
   <span class="date">15 AUGUST 2026</span>
-  <a class="dl" href="FreedomReport.pdf" download>Download PDF</a>
+  <a class="dl" href="FreedomReport.pdf" download>Download the report</a>
   <div class="prail" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
 </nav>
 <header class="s s-night hero" id="card-01">
@@ -352,7 +382,7 @@ footer .date{font-size:12px;font-weight:600;letter-spacing:.18em;
       <p class="kicker">15 AUGUST 2026</p>
       <h1>India&rsquo;s Financial Freedom Report</h1>
       <p class="hero-by">by Oolka</p>
-      <p class="hero-cta"><a class="btn" href="FreedomReport.pdf" download>Download the report (PDF, 10 MB)</a></p>
+      <p class="hero-cta"><a class="btn" href="FreedomReport.pdf" download>Download the report</a></p>
     </div>
     <figure class="hero-cover">
       <img src="assets/cover.jpg" srcset="assets/cover.jpg 1200w, assets/cover-s.jpg 640w"
@@ -521,7 +551,7 @@ footer .date{font-size:12px;font-weight:600;letter-spacing:.18em;
        alt="Back cover: red cloth, the Oolka mark, and a hand-drawn white heart beside the dedication." loading="lazy">
 </figure>
 <p class="dedication">Made for Bharat, with <svg class="heart" viewBox="0 0 24 22" aria-hidden="true"><path class="hrtp" pathLength="1" d="M12 20.3C5.4 15.5 1.6 11.6 1.6 7.4 1.6 4.2 4 2 6.9 2c1.9 0 3.7 1 4.6 2.6h1C13.4 3 15.2 2 17.1 2 20 2 22.4 4.2 22.4 7.4c0 4.2-3.8 8.1-10.4 12.9Z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></p>
-<p class="hero-cta"><a class="btn" href="FreedomReport.pdf" download>Download the report (PDF, 10 MB)</a></p></div></section></main><footer class="s s-night">
+<p class="hero-cta"><a class="btn" href="FreedomReport.pdf" download>Download the report</a></p></div></section></main><footer class="s s-night">
   <div class="w">
     <img src="assets/oolka_horiz_white.svg" alt="Oolka">
     <span class="date">15 AUGUST 2026</span>
