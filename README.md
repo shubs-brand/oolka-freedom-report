@@ -1,14 +1,47 @@
 # India's Financial Freedom Report — oolka.in page
 
-Static site, no JavaScript. `index.html` + `assets/` + `FreedomReport.pdf`.
+The web edition of India's Financial Freedom Report, from Oolka. Lives at
+**https://oolka.in/freedom-report/**.
 
-This folder is BUILT, never hand-edited. Source of truth is the card deck in
-the Brand Track workspace: `python3 build_deck.py && python3 build_web.py`
-regenerates everything here, and every line of copy is asserted against the
-deck cards, so edit the card builders, not this HTML.
+`index.html` + `assets/` + `FreedomReport.pdf`. Everything is relative paths;
+the page renders complete with no JavaScript, and every motion and interaction
+sits behind an `html.js` gate inside a reduced-motion guard.
 
-Before it goes live under oolka.in:
-- set `og:image` and `og:url` to absolute URLs (marked in the head)
-- add the canonical tag for the final path
-- spot-check Indic text once on Windows (Nirmala UI) and Android (Noto),
-  especially Ol Chiki and Meetei Mayek
+## Build
+
+This folder is BUILT, never hand-edited. The source of truth is the card deck:
+`python3 build_deck.py && python3 build_web.py` regenerates everything here.
+Every line of copy is extracted from the deck cards and asserted back against
+them at build time, so edit the card builders, not this HTML.
+
+## Deploy
+
+oolka.in is self-hosted Next.js behind nginx. Clone this repo on that box and
+alias the path to it:
+
+```
+sudo git clone https://github.com/shubs-brand/oolka-freedom-report.git /var/www/oolka-freedom-report
+```
+
+Then inside the oolka.in `server` block:
+
+```
+location = /freedom-report { return 301 /freedom-report/; }
+location /freedom-report/ {
+    alias /var/www/oolka-freedom-report/;
+    index index.html;
+}
+```
+
+`sudo nginx -t && sudo systemctl reload nginx`. Updates are `git pull` in that
+directory.
+
+Canonical, `og:url` and `og:image` are already absolute and point at
+https://oolka.in/freedom-report/ — nothing needs editing at deploy time.
+
+## Still owed
+
+- Spot-check Indic text on Windows (Nirmala UI), especially Ol Chiki and
+  Meetei Mayek. macOS and Android are verified.
+- Add `/freedom-report/` to the oolka.in sitemap by hand — the nginx alias
+  makes it invisible to Next's route-generated sitemap.
